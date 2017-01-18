@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                components: {
+                    "aa": {
+                        template: "#a"
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <aa>
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>454</li>
+        </ul>
+    </aa>
+    <aa></aa>
+    <template id="a">
+        <h1>AAA</h1>
+        <slot>默认的情况</slot>
+        <p>welcome to vue</p>
+    </template>
+</div>
+</body>
+</html>

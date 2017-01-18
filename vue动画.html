@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .fade-transition {
+            transition: 1s all ease;
+        }
+
+        .fade-enter {
+            opacity: 0;
+        }
+
+        .fade-leave {
+            opacity: 0;
+            transform: translateX(200px);
+        }
+    </style>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                data: {
+                    show: true
+                },
+                methods: {
+                    toggle: function () {
+                        this.show = !this.show;
+                    }
+                }
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <input type="button" value="按钮" @click="toggle">
+    <div id="div1" v-show="show" transition="fade">
+
+    </div>
+</div>
+</body>
+</html>

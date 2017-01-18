@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var Aaa = Vue.extend({
+                data(){
+                    return {
+                        msg: "aaaa"
+                    }
+                },
+                methods: {
+                    change(){
+                        this.msg = "变aa了"
+                    }
+                },
+                template: '<h3 @click="change">{{msg}}</h3>'
+            });
+            Vue.component("aaa", Aaa);
+            var vm = new Vue({
+                el: "#box",
+                data: {
+                    show: true
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <div id="div1" class="animated" v-show="show" transition="bounce">
+        <aaa></aaa>
+    </div>
+</div>
+</body>
+</html>

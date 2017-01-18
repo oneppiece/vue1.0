@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                components: {
+                    "my-aaa": {
+                        data(){
+                            return {msg: "你好"}
+                        },
+                        methods:{
+                            change:function() {
+                                this.msg = this.msg + "世界";
+                            }
+
+                        },
+                        template: '<h1 @click="change">{{msg}}</h1>'
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <my-aaa></my-aaa>
+</div>
+</body>
+</html>

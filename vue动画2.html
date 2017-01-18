@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/.3.5.2@animate.css/animate.css">
+    <style>
+        #box {
+            width: 400px;
+            margin-left: 200px;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+    </style>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                data: {
+                    show: true
+                },
+                methods: {
+                    toggle: function () {
+                        this.show = !this.show;
+                    }
+                },
+                transitions: {
+                    bounce: {
+                        enterClass: "zoomInLeft",
+                        leaveClass: "zoomOutRight"
+                    }
+                }
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <input type="button" value="按钮" @click="toggle">
+    <div id="div1" class="animated" v-show="show" transition="bounce">
+
+    </div>
+</div>
+</body>
+</html>

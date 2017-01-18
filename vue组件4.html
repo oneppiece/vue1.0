@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var myAaa = Vue.component("aaa", {
+                template: '<h3>标题三</h3>'
+            });
+            var vm = new Vue({
+                el: "#box",
+                data: {
+                    show: true
+                },
+                methods: {
+                    toggle: function () {
+                        this.show = !this.show;
+                    }
+                },
+                components: {
+                    /*myAaa: myAaa*/
+                    'my-aaa': myAaa
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <div id="div1" class="animated" v-show="show" transition="bounce">
+        <my-aaa></my-aaa>
+    </div>
+</div>
+</body>
+</html>

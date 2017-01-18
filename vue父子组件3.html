@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                components: {
+                    "aa": {
+                        data(){
+                            return {
+                                "msg": "我是父组件的数据",
+                                "msg2": 66666
+                            }
+                        },
+                        methods: {
+                            get(a){
+                                this.msg = a;
+                            }
+                        },
+                        template: "#aa",
+                        components: {
+                            "bb": {
+                                data() {
+                                    return {'m': '我是子组件的数据'}
+                                },
+                                methods: {
+                                    send(){
+                                        this.$emit('child-msg', this.m);
+                                    }
+                                }
+                                ,
+                                template: "#bb"
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <aa></aa>
+    <template id="aa">
+        <span>父组件获取子组件数据: <h1>{{msg}}</h1></span>
+        <bb @child-msg="get"></bb>
+    </template>
+    <template id="bb">
+        <br>
+        <input type="text" v-model="m">
+        <button @click="send">send</button>
+    </template>
+</div>
+</body>
+</html>

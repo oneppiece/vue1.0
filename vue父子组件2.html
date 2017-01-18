@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: "#box",
+                data: {
+                    a: 'aa'
+                },
+                components: {
+                    "aa": {
+                        data(){
+                            return {
+                                "msg": "我是父组件的数据",
+                                "msg2": 66666
+                            }
+                        },
+                        template: "#aa",
+                        components: {
+                            "bb": {
+                                props: {
+                                    'm': String,
+                                    'myMsg': Number
+                                },
+                                template: "<h1>子组件:{{m}}<br>{{myMsg}}</h1>"
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <input type="button" value="按钮一枚" @click="a='aa'">
+    <input type="button" value="按钮二枚" @click="a='bb'">
+    <component :is="a"></component>
+</div>
+<template id="aa">
+    <h1>父组件:{{msg}}</h1>
+    <bb :m="msg" :my-msg="msg2"></bb>
+</template>
+</body>
+</html>

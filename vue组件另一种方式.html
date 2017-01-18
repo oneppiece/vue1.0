@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/.1.0.28@vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.component("myAaa", {
+                template: '<h1>AAAAAA</h1>'
+            })
+            var vm = new Vue({
+                el: "#box"
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <my-aaa></my-aaa>
+</div>
+</body>
+</html>
